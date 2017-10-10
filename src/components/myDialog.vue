@@ -45,9 +45,9 @@
 			background: rgba(0, 0, 0, .5);
 		}
 		.dialog-content {
+			box-sizing: border-box;
 			position: fixed;
 			width: 50%;
-			min-width: 210px;
 			background: white;
 			left: 50%;
 			margin-left: -25%;

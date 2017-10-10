@@ -38,23 +38,23 @@
 				}else if (/[!@#$%^&*\/\\\s]/g.test(this.userName)) {
 					return this.userError = '不能包含符号!@#$%^&*\/\\和空字符';
 				} else {
+					this.nameOK = true;
 					return this.userError = '';
 				}
-				this.nameOK = true;
 			},
 			passCheck () {
 				this.passOK = false;
 				if(this.passWord.trim().length == 0) {
 					return this.passError = '密码不可为空';
-				} else if(!/^\w{4,12}$/.test(this.passWord)) {
+				} else if(!/^[0-9]{4,12}$/.test(this.passWord)) {
 					return this.passError = '密码只能为数字且范围在4-12位';
 				} else {
+					this.passOK = true;
 					return this.passError = '';
 				}
-				this.passOK = true;
 			},
 			logInOK () {
-				if(this.userError.length == 0 && this.passError.length == 0) {
+				if(this.nameOK && this.passOK) {
 					this.axios.get('/api/test')
 						.then((data) => alert(data.data.status));
 				}
@@ -67,13 +67,16 @@
 	.logIn-warp {
 		margin-left: 1rem;
 		.logIn-line {
-			margin: 2rem 0;
+			margin: 1rem 0;
+			line-height: 2rem;
 			label {
 				display: inline-block;
 				width: 100px;
 			}
 			input {
 				padding: 5px;
+				width: 25%;
+				min-width: 85px;
 			}
 		}
 		button {
