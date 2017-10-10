@@ -21,6 +21,15 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+// 测试路由
+var router = express.Router();
+router.get('/api/test', (req, res, next) => {
+  res.json({
+    status: 'OK'
+  })
+});
+app.use(router);
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

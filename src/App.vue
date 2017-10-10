@@ -5,9 +5,9 @@
         <img src="./assets/logo.png">
         <div class="head-nav">
           <ul class="nav-list">
-            <li><a href="#" @click="openDialog('isSignUP')">登录</a></li>
+            <li><a href="#" @click="openDialog('isLogIn')">登录</a></li>
             <li class="nav-pile">|</li>
-            <li><a href="#" @click="openDialog('isLogIn')">注册</a></li>
+            <li><a href="#" @click="openDialog('isSignUP')">注册</a></li>
             <li class="nav-pile">|</li>
             <li><a href="#" @click="openDialog('isAbout')">关于</a></li>
           </ul>
