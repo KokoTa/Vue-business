@@ -117,7 +117,7 @@
 					},
 					{
 					  title: '随机异世界',
-					  description: '帮你勇闯高峰，到达事业的顶峰',
+					  description: '相由天命',
 					  id: 'random'
 					}
 				],

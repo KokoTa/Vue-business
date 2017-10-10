@@ -5,11 +5,11 @@
         <img src="./assets/logo.png">
         <div class="head-nav">
           <ul class="nav-list">
-            <li><a href="#">登录</a></li>
+            <li><a href="#" @click="openDialog('isSignUP')">登录</a></li>
             <li class="nav-pile">|</li>
-            <li><a href="#">注册</a></li>
+            <li><a href="#" @click="openDialog('isLogIn')">注册</a></li>
             <li class="nav-pile">|</li>
-            <li><a href="#">关于</a></li>
+            <li><a href="#" @click="openDialog('isAbout')">关于</a></li>
           </ul>
         </div>
       </div>
@@ -22,13 +22,48 @@
     <div class="app-footer">
       <p>&copy 2017 by KokoTa</p>
     </div>
+    <my-dialog :show-dialog="isSignUP" @close-dialog="closeDialog('isSignUP')">
+      <signUp></signUp>
+    </my-dialog>
+    <my-dialog :show-dialog="isLogIn" @close-dialog="closeDialog('isLogIn')">
+      <logIn></logIn>
+    </my-dialog>
+    <my-dialog :show-dialog="isAbout" @close-dialog="closeDialog('isAbout')">
+      <about></about>
+    </my-dialog>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import myDialog from '@/components/myDialog';
+  import signUp from '@/components/base/signUp';
+  import logIn from '@/components/base/logIn';
+  import about from '@/components/base/about';
+
+  export default {
+    name: 'app',
+    components: {
+      myDialog,
+      signUp,
+      logIn,
+      about
+    },
+    data () {
+      return {
+        isSignUP: false,
+        isLogIn: false,
+        isAbout: false
+      }
+    },
+    methods: {
+      openDialog (value) {
+        this[value] = true;
+      },
+      closeDialog (value) {
+        this[value] = false;
+      }
+    }
+  }
 </script>
 
 <style lang="scss">

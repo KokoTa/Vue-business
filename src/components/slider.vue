@@ -81,7 +81,7 @@
 	}
 </script>
 
-<style lang='scss'>
+<style lang='scss' scoped>
 	.slide-show {
 		width: 900px;
 		height: 500px;
