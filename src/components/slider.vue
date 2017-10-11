@@ -62,6 +62,7 @@
 		},
 		methods: {
 			goto (index) {
+				if(this.nowIndex == index) return;
 				// 状态发生变化 -> 执行过渡移出 -> 索引发生变化 -> 执行过渡移入
 				this.show = !this.show; 
 				this.nowIndex = index;
