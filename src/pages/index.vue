@@ -32,7 +32,9 @@
 					<div class="board-item-bg">
 						<h1>{{ item.title }}</h1>
 						<p>{{ item.description }}</p>
-						<button>立即进入</button>
+						<router-link tag="button" :to="item.href">
+							立即进入
+						</router-link>
 					</div>
 				</div>
 			</div>
@@ -103,44 +105,48 @@
 					{
 					  title: '村民异世界',
 					  description: '从零开始你的冒险',
-					  id: 'zero'
+					  id: 'zero',
+					  href: '/detail/mmqlz'
 					},
 					{
 					  title: '勇者异世界',
 					  description: '以勇者的身份进行冒险',
-					  id: 'hero'
+					  id: 'hero',
+					  href: '/detail/djsy'
 					},
 					{
 					  title: '龙傲天异世界',
 					  description: '人民币玩家的天堂',
-					  id: 'god'
+					  id: 'god',
+					  href: '/detail/zewg'
 					},
 					{
 					  title: '随机异世界',
 					  description: '相由天命',
-					  id: 'random'
+					  id: 'random',
+					  href: '/detail/sq'
 					}
 				],
 				slideList: [
 					{
 						title: '01',
 						src: require('@/assets/img/s1.jpg'),
-						href: 'www.baidu.com'
+						href: '/'
 					},
 					{
 						title: '02',
 						src: require('@/assets/img/s2.jpg'),
-						href: 'www.baidu.com'
+						href: '/'
 					},
 					{
 						title: '03',
 						src: require('@/assets/img/s3.jpg'),
-						href: 'www.baidu.com'
+						href: '/'
 					},
 					{
 						title: '04',
 						src: require('@/assets/img/s4.jpg'),
-						href: 'www.baidu.com'
+						href: '/'
 					}
 				]
 			}

@@ -2,10 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/pages/index'
 import detail from '@/pages/detail'
-import mmqlz from '@/components/detail/mmqlz'
-import djsy from '@/components/detail/djsy'
-import zewg from '@/components/detail/zewg'
-import sq from '@/components/detail/sq'
+import mmqlz from '@/pages/detail/mmqlz'
+import djsy from '@/pages/detail/djsy'
+import zewg from '@/pages/detail/zewg'
+import sq from '@/pages/detail/sq'
 
 Vue.use(Router)
 

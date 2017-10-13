@@ -14,9 +14,9 @@
 				</ul>
 			</div>
 		</div>
-		<div class="detail-right">
+		<keep-alive>
 			<router-view></router-view>
-		</div>
+		</keep-alive>
 	</div>
 </template>
 
@@ -51,9 +51,10 @@
 		},
 		computed: {
 			getSrc () {
-				return this.detailList.find((item) => {
+				var obj = this.detailList.find((item) => {
 					return ('/detail/' + item.path) == this.$route.path
-				}).src;
+				});
+				return obj ? obj.src : '';
 			}
 		}
 	}
@@ -91,6 +92,66 @@
 			float: left;
 			width: 900px;
 			margin-top: 1rem;
+			.detail-select, .detail-content {
+				width: 100%;
+				background: white;
+			}
+			h1 {
+				font-size: 1.5rem;
+				padding: 1rem;
+			}
+			p {
+				line-height: 2rem;
+				padding: 1rem;
+			}
+			.detail-select {
+				margin-bottom: 1rem;
+				overflow: hidden;
+				p {
+					background: #ddd;
+				}
+				dl {
+					margin: 1rem;
+					overflow: hidden;
+					dt {
+						line-height: 28px;
+						margin-bottom: 1rem;
+						width: 100px;
+						float: left;
+						clear: both;
+						margin-left: .5rem;
+					}
+					dt:last-of-type {
+						margin-bottom: 0;
+					}
+					dd {
+						float: left;
+					}
+				}
+			}
+			.detail-content {
+				p {
+					text-indent: 2rem;
+				}
+			}
 		}
+	}
+
+	.money {
+		display: inline-block;
+		width: 100px;
+		line-height: 24px;
+	}
+
+	.btn-submit {
+		margin: 0 0 1rem 1.5rem;
+		width: 60px;
+		height: 35px;
+		border: none;
+		outline: none;
+		background: black;
+		color: white;
+		border-radius: 5px;
+		cursor: pointer;
 	}
 </style>
