@@ -13,7 +13,7 @@
 				<dt>总价：</dt>
 				<dd><span class="money">{{ allMoney }}</span></dd>
 			</dl>
-			<button class="btn-submit">购买</button>
+			<button class="btn-submit" @click="buy">购买</button>
 		</div>
 		<div class="detail-content">
 			<h1>内容简介</h1>
@@ -65,6 +65,9 @@
 		methods: {
 			getData (attr, value) {
 				this.finalChoice[attr] = value;
+			},
+			buy () {
+
 			}
 		},
 		computed: {

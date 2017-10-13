@@ -6,6 +6,7 @@ import mmqlz from '@/pages/detail/mmqlz'
 import djsy from '@/pages/detail/djsy'
 import zewg from '@/pages/detail/zewg'
 import sq from '@/pages/detail/sq'
+import result from '@/pages/result'
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
     			component: sq,
     		}
     	]
+    },
+    {
+        path: '/result',
+        name: 'result',
+        component: result
     }
   ]
 })

@@ -1,11 +1,8 @@
 <template>
 	<div class="c-place">
 		<select required @change="changePlace">
-			<option value="北京">北京</option>
-			<option value="上海">上海</option>
-			<option value="广州">广州</option>
-			<option value="杭州">杭州</option>
-			<option value="厦门">厦门</option>
+			<option v-for="item in dataList"
+			:value="item">{{ item }}</option>
 		</select>
 	</div>
 </template>
@@ -13,6 +10,12 @@
 <script>
 	export default {
 		name: 'choicePalce',
+		props: {
+			dataList: {
+				type: Array,
+				default: () => []
+			}
+		},
 		data () {
 			return {
 				place: ''
