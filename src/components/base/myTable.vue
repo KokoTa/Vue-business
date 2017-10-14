@@ -3,7 +3,7 @@
 		<table>
 			<thead>
 				<tr>
-					<th v-for="item in titleList">
+					<th v-for="(item, index) in titleList" @click="orderList(index)">
 						{{ item }}
 					</th>
 				</tr>
@@ -40,12 +40,26 @@
 				default: () => []
 			}
 		},
+		data () {
+			return {
+				sortFlag: 1
+			}
+		},
 		methods: {
 			isObject () {
 				if(!Array.isArray(this.dataList)) {
 					return true;
 				}
 				return false;
+			},
+			orderList (index) {
+				this.sortFlag = this.sortFlag * -1;
+				let that = this;
+				if(Array.isArray(this.dataList)) {
+					let order = this.dataList.sort(function(a, b) {
+						return (a[Object.keys(a)[index]] - b[Object.keys(b)[index]]) * that.sortFlag;
+					})
+				}
 			}
 		}
 	}

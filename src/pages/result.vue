@@ -3,19 +3,19 @@
 		<div class="result-line">
 			<div class="result-order">
 				选择产品：
-				<choice-place :dataList="detailTypes()"></choice-place>
+				<choice-place :dataList="detailTypes" @getPlace="filterData('product', $event)"></choice-place>
 			</div>
 			<div class="result-order">
 				日期查询：
-				<my-datepicker :date="date" :option="option" :limit="limit"></my-datepicker>
+				<my-datepicker :date="date" :option="option" :limit="limit" @change="filterData('date', $event)"></my-datepicker>
 			</div>
 			<div class="result-order">
-				搜索关键词：
-				<input type="text">
+				搜索地区：
+				<input type="text" @input="filterData('place', $event.target.value)">
 			</div>
 		</div>
 		<div class="result-line">
-			<my-table :dataList="shoppingData()" :titleList="choiceTitle()"></my-table>
+			<my-table :dataList="dataInfo" :titleList="choiceTitle"></my-table>
 		</div>
 	</div>
 </template>
@@ -33,11 +33,14 @@
 			myDatepicker,
 			myTable
 		},
+		computed: {
+			...mapState(['shoppingData', 'detailTypes', 'choiceTitle'])
+		},
 		data () {
 			return {
-				...mapState(['shoppingData', 'detailTypes', 'choiceTitle']),
+				dataInfo: [],
 				date: {
-				  time: '' // string
+				  time: ''
 				},
 				option: {
 					type: 'day',
@@ -51,10 +54,24 @@
 				},
 				limit: [{
 					type: 'fromto',
-					from: '2017-10-14',
-					to: '2017-12-12'
+					from: '2016-01-01',
+					to: '2018-12-31'
 				}]
 			}
+		},
+		methods: {
+			filterData (attr, value) {
+				let data = this.shoppingData.filter((item) => {
+					if(attr == 'place') {
+						return item[attr].indexOf(value) > -1; // 输入值为''时，返回0，因此当没有输入时获得所有数据
+					}
+					return item[attr] == value;
+				})
+				this.dataInfo = data;
+			}
+		},
+		created () {
+			this.dataInfo = this.shoppingData;
 		}
 	}
 </script>
