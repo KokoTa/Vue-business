@@ -11,7 +11,7 @@
 			</div>
 			<div class="result-order">
 				搜索地区：
-				<input type="text" @input="filterData('place', $event.target.value)">
+				<input type="text" @input="filterData('place', $event.target.value)" placeholder="搜索全部请输入空字符">
 			</div>
 		</div>
 		<div class="result-line">
